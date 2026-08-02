@@ -4,11 +4,6 @@ class Media(ABC):
     
     @property
     @abstractmethod
-    def owner(self):
-        pass
-
-    @property
-    @abstractmethod
     def creator(self):
         pass
 
