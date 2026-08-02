@@ -16,4 +16,4 @@ class Movie(Media):
 
     @property
     def release(self):
-        return self.__creator
+        return self.__release
