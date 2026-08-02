@@ -1,4 +1,18 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 class Media(ABC):
-    pass
+    
+    @property
+    @abstractmethod
+    def owner(self):
+        pass
+
+    @property
+    @abstractmethod
+    def creator(self):
+        pass
+
+    @property
+    @abstractmethod
+    def release(self):
+        pass
