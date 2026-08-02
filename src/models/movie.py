@@ -4,8 +4,8 @@ class Movie(Media):
     def __init__(self, owner, creator, release):
         self.__owner = owner
         self.__creator = creator
-        self.__release
-
+        self.__release = release
+        
     @property
     def owner(self):
         return self.__owner
