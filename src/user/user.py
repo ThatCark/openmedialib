@@ -1,9 +1,8 @@
+from media import models
 class User:
     def __init__(self, username):
         self.__username = username
         self.__movie_collection =  []
-        self.__borrowed_movies = []
-        self.__lent_movies = []
 
     @property
     def username(self):
@@ -19,5 +18,3 @@ class User:
 
     def delete_movie(self, movie):
         self.__movie_collection.remove(movie)
-
-    
