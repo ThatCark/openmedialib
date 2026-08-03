@@ -1,4 +1,3 @@
-from media import models
 class User:
     def __init__(self, username):
         self.__username = username
@@ -18,3 +17,6 @@ class User:
 
     def delete_movie(self, movie):
         self.__movie_collection.remove(movie)
+
+    def get_borrowed_movies(self, all_lendings):
+        return [lending.media for lending in all_lendings if lending.borrower == self]

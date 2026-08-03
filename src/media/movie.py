@@ -1,7 +1,7 @@
 from media import Media
 
 class Movie(Media):
-    def __init__(self, owner, creator, release):
+    def __init__(self, creator, release):
         self.__creator = creator
         self.__release = release
         
