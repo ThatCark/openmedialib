@@ -15,7 +15,7 @@ class MemoryConnector(ABC):
         pass
 
     @abstractmethod
-    def loaf(self):
+    def load(self):
         pass
     
 # C: Create
