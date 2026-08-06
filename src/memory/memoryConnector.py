@@ -11,7 +11,7 @@ class MemoryConnector(ABC):
         pass
 
     @abstractmethod
-    def save(self):
+    def save(self, *data):
         pass
 
     @abstractmethod
