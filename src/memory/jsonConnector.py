@@ -1,6 +1,7 @@
 import json
 from json import JSONEncoder
 from media import Media
+from movie import Movie
 
 class JSONConnector(MemoryConnector):
     def __init__(self, username):
@@ -33,6 +34,12 @@ class JSONConnector(MemoryConnector):
         #     return
         # except json.JSONDecodeError:
         #     return
+
+    def media_hook(self, dct):
+        if not (type in dct and creator in dct and release in dct):
+            return
+        if type == "Movie":
+            return Movie(dct["creator"], dct["release"])
 
 class MediaEncoder(JSONEncoder):
     def default(self, obj):
