@@ -1,5 +1,6 @@
 import json
 from json import JSONEncoder
+from media import Media
 
 class JSONConnector(MemoryConnector):
     def __init__(self, username):
@@ -15,8 +16,8 @@ class JSONConnector(MemoryConnector):
         self.__data = []
 
     def save(self, *data):
-        with(self.__user_json, "w") as memory:
-            #json.dump(data, memory, cls=, indent=4)
+        with open(self.__user_json, "w") as memory:
+            json.dump(data, memory, cls=MediaEncoder, indent=4)
             #encoder required 
             #1. dump media
             #2. dump lending
@@ -32,3 +33,9 @@ class JSONConnector(MemoryConnector):
         #     return
         # except json.JSONDecodeError:
         #     return
+
+class MediaEncoder(JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, Media):
+            return obj.to_dict()
+        return super().default(obj)

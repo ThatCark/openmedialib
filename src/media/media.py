@@ -11,3 +11,7 @@ class Media(ABC):
     @abstractmethod
     def release(self):
         pass
+
+    @abstractmethod
+    def to_dict(self):
+        pass

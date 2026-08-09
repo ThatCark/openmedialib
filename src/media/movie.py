@@ -12,3 +12,10 @@ class Movie(Media):
     @property
     def release(self):
         return self.__release
+
+    def to_dict(self):
+        return {
+            "type" : "Movie",
+            "creator" : self.creator,
+            "release" : self.release
+        }
