@@ -6,7 +6,7 @@ class User:
     @property
     def username(self):
         return self.__username
-
+        
     @username.setter
     def username(self, username):
         #if username not in used_usernames:

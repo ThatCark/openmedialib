@@ -23,7 +23,7 @@ class JSONConnector(MemoryConnector):
             #1. dump media
             #2. dump lending
 
-    def load(self, user_id):
+    def load(self):
         if not self.__data.strip():
             return 
         loaded_data = json.loads(self.__data, object_hook=media_hook)

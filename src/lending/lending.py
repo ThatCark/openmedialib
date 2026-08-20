@@ -21,9 +21,9 @@ def media(self):
 def to_dict():
     return {
             "type" : "Lending",
-            "lender" : self.__lender,
-            "borrower" : self.__borrower,
-            "media" : self.__media
+            "lender" : self.lender,
+            "borrower" : self.borrower,
+            "media" : self.media
     }
 
     
