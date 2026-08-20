@@ -1,7 +1,8 @@
 import json
 from json import JSONEncoder
-from media import Media
-from movie import Movie
+from media.media import Media
+from media.movie import Movie
+from .memoryConnector import MemoryConnector
 
 class JSONConnector(MemoryConnector):
     def __init__(self, username):
@@ -24,9 +25,9 @@ class JSONConnector(MemoryConnector):
             #2. dump lending
 
     def load(self):
-        if not self.__data.strip():
-            return 
-        loaded_data = json.loads(self.__data, object_hook=media_hook)
+        # if not self.__data.strip():
+        #     return 
+        loaded_data = json.loads(self.__data, object_hook=self.media_hook)
         return loaded_data
 
         # except FileNotFoundError:
