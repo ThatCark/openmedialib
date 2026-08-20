@@ -16,6 +16,6 @@ class Movie(Media):
     def to_dict(self):
         return {
             "type" : "Movie",
-            "creator" : self.creator,
-            "release" : self.release
+            "creator" : self.__creator,
+            "release" : self.__release
         }

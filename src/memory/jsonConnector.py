@@ -26,10 +26,9 @@ class JSONConnector(MemoryConnector):
     def load(self, user_id):
         if not self.__data.strip():
             return 
-        
-        #loaded_data = json_loads(self.__data, object_hook=)
-        #object_hook required
-    
+        loaded_data = json.loads(self.__data, object_hook=media_hook)
+        return loaded_data
+
         # except FileNotFoundError:
         #     return
         # except json.JSONDecodeError:
@@ -40,9 +39,11 @@ class JSONConnector(MemoryConnector):
             return
         if type == "Movie":
             return Movie(dct["creator"], dct["release"])
+        if type == "Lending":
+            return Lending(dct["lender"], dct["borrower"], dct["media"])
 
 class MediaEncoder(JSONEncoder):
     def default(self, obj):
-        if isinstance(obj, Media):
+        if isinstance(obj, (Media, Lending)):
             return obj.to_dict()
         return super().default(obj)

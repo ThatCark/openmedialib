@@ -18,4 +18,12 @@ def borrower(self):
 def media(self):
     return self.__media
 
+def to_dict():
+    return {
+            "type" : "Lending",
+            "lender" : self.__lender,
+            "borrower" : self.__borrower,
+            "media" : self.__media
+    }
+
     
